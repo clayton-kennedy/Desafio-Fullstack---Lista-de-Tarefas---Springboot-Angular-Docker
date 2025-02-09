@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  backend:
+    image: claytonkpr/minha-api-springboot:latest
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/lista-tarefas
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    depends_on:
+      - database
+    networks:
+      - lista-tarefas
+
+  frontend:
+    image: claytonkpr/image-docker-lista-tarefas-frontend:latest
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - lista-tarefas
+
+  database:
+    image: postgres:17.2
+    container_name: database
+    restart: always
+    environment:
+      POSTGRES_DB: lista-tarefas
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - volume-lista-tarefas:/var/lib/postgresql/data
+    networks:
+      - lista-tarefas
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "15432:80"
+    depends_on:
+      - database
+    networks:
+      - lista-tarefas
+
+networks:
+  lista-tarefas:
+    driver: bridge
+
+volumes:
+  volume-lista-tarefas:

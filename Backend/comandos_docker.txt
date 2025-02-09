@@ -1,0 +1,4 @@
+docker run -d --name lista-tarefas -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=lista-tarefas --network lista-tarefas -v volume-lista-tarefas:/var/lib/postgresql/data postgres:17.2
+
+
+docker run -d --name pgadmin4 -p 15432:80 -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin --network lista-tarefas dpage/pgadmin4
