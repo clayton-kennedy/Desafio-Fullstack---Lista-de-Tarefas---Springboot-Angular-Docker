@@ -1,0 +1,74 @@
+<main class="container">
+  <div class="titulo">
+    <h1>Tarefas</h1>
+
+    <div>
+      <label for="ordenacao">Ordenar:</label>
+      <select name="ordenacao" id="ordenacao" (change)="ordenar($event)">
+        <option value="maiorPrioridade">Maior Prioridade</option>
+        <option value="menorPrioridade">Menor Prioridade</option>
+        <option value="maisNovos">Mais Novos</option>
+        <option value="maisAntigos">Mais Antigos</option>
+        <option value="realizadas">Realizadas</option>
+        <option value="naoRealizadas">Não Realizados</option>
+      </select>
+    </div>
+  </div>
+
+  <section
+    class="tarefas"
+    *ngFor="let tarefa of tarefas"
+    [ngClass]="{ realizado: tarefa.realizado === true }"
+  >
+    <div class="tarefa">
+      <span class="descricao">{{ tarefa.descricao }} </span>
+      <div class="botoes">
+        <i
+          class="bi bi-check2-circle icone-realizado"
+          (click)="alterarRealizado(tarefa)"
+        ></i>
+        <i class="bi bi-trash icone-lixeira" (click)="abrirModal(tarefa)"></i>
+      </div>
+    </div>
+
+    <div class="infosAdicionais">
+      <div class="datas">
+        <span class="dataCriacao"
+          >Criado dia: {{ tarefa.dataCriacao | date : "dd/MM/yyyy" }}</span
+        >
+        <span
+          class="dataFinal"
+          [ngClass]="{ esconder: tarefa.realizado === true }"
+          >Finaliza dia: {{ tarefa.dataFinal | date : "dd/MM/yyyy" }}</span
+        >
+        <span
+          class="dataRealizado"
+          [ngClass]="{ esconder: tarefa.realizado === false }"
+          >Realizado dia: {{ tarefa.dataRealizado | date : "dd/MM/yyyy" }}</span
+        >
+      </div>
+      <span class="prioridade">
+        Prioridade:
+        <span
+          [ngClass]="{
+            alta: tarefa.prioridade === 'Alta',
+            media: tarefa.prioridade === 'Média',
+            baixa: tarefa.prioridade === 'Baixa'
+          }"
+        >
+          {{ tarefa.prioridade }}
+        </span>
+      </span>
+    </div>
+
+    <div class="fundo-modal" *ngIf="modalAberto">
+      <div class="modal">
+        <span>Deseja realmente excluir a tarefa?</span>
+        <div class="botoes">
+          <button (click)="fecharModal()" class="btnCancelar">Cancelar</button>
+          <button (click)="removerTarefa(tarefa.id)" class="btnConfirmar">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

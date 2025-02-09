@@ -1,0 +1,176 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+.container {
+    background-color: white;
+    padding: 1em;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px #0000001a;
+
+    .titulo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .titulo div label {
+        margin: 0 10px;
+    }
+
+    .titulo div select {
+        padding: 0.7em;
+        border-radius: 10px;
+    }
+
+    .tarefas {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        padding: 1em;
+        margin: 20px 0;
+        border-radius: 20px;
+        box-shadow: 0px 4px 10px #0000001a;
+        background-color: #f1f1f1;
+        text-transform: capitalize;
+
+        .tarefa {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            justify-content: space-between;
+
+            .descricao {
+                width: 90%;
+                align-items: start;
+                font-weight: bold;
+                flex-wrap: wrap;
+            }
+
+            .botoes {
+                justify-items: end;
+                align-items: end;
+                width: 10%;
+            }
+        }
+    }
+
+    .icone-realizado,
+    .icone-lixeira {
+        margin: 0 10px;
+        cursor: pointer;
+        font-size: 36px;
+    }
+
+    .icone-realizado {
+        color: green;
+    }
+
+    .icone-lixeira {
+        color: red;
+    }
+
+    .infosAdicionais {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 0.8em;
+
+        .datas {
+            width: 20%;
+            display: flex;
+            align-self: start;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .prioridade {
+            font-size: 1.1em;
+            align-items: end;
+        }
+    }
+
+    .alta {
+        color: #dd0000;
+    }
+
+    .media {
+        color: #da9500;
+    }
+
+    .baixa {
+        color: #00a3e4;
+    }
+
+    .tarefas.realizado {
+        background-color: #90ff905d;
+
+        .descricao {
+            text-decoration: line-through;
+        }
+
+        .icone-realizado {
+            color: gray;
+        }
+    }
+
+    .esconder {
+        display: none;
+    }
+
+    .mostrar {
+        display: flex;
+    }
+
+    .fundo-modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+    }
+    
+    .modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        width: 30%;
+        height: auto;
+        padding: 1em;
+        border-radius: 1em;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        position: relative;
+        z-index: 100;
+    }
+    
+      .botoes {
+        display: flex;
+        flex-direction: row;
+
+        button {
+            padding: 0.3em 0.7em;
+            border-radius: 0.8em;
+            margin: 0 10px;
+        }
+        .btnCancelar {
+            background-color: red;
+            color: white;
+        }
+        .btnConfirmar {
+            background-color: green;
+            color: white;
+        }
+      }
+}

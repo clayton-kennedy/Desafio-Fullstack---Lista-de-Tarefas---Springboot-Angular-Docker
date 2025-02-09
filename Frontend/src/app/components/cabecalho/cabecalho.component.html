@@ -1,0 +1,22 @@
+
+<main>
+    <div class="titulo">
+        <h1>Nova tarefa</h1>
+        </div>
+    <div class="formulario" (ngSubmit)="cadastrarTarefa()" method="POST">
+        <label for="descricao">Tarefa:</label>
+        <input type="text" name="descricao" id="descricao"  [(ngModel)]="novaTarefa.descricao" placeholder="Descrição da tarefa" required><br/>
+
+        <div>
+            <label for="dataFinal">Data Final:</label>
+            <input type="date" name="dataFinal" id="dataFinal"  [(ngModel)]="novaTarefa.dataFinal" required>
+            <label for="prioridade" id="prioridade">Prioridade:</label>
+            <select name="prioridade" id="prioridade" [(ngModel)]="novaTarefa.prioridade" required>
+                <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
+                <option value="Alta">Alta</option>
+            </select>
+        </div>
+        <button class="botaoEnviar" (click)="cadastrarTarefa()">Nova Tarefa</button>
+    </div>
+</main>

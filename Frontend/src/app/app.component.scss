@@ -1,0 +1,14 @@
+
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+.container {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
