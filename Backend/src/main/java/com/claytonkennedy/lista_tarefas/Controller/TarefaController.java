@@ -17,7 +17,7 @@ import com.claytonkennedy.lista_tarefas.Model.Tarefa;
 import com.claytonkennedy.lista_tarefas.Service.TarefaService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api")
 public class TarefaController {
     @Autowired
     TarefaService tarefaService;
@@ -35,7 +35,7 @@ public class TarefaController {
     }
 
     //remover
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public void remover(@PathVariable  String id) {
         try {
             tarefaService.remover(id);
@@ -46,7 +46,7 @@ public class TarefaController {
     }
 
     //atualizar
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public void atualizar(@PathVariable String id, @RequestBody Tarefa tarefa) {
         System.out.println("Tarefa recebida: "+ tarefa);
         try {
