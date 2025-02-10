@@ -15,7 +15,7 @@ services:
       - lista-tarefas
 
   frontend:
-    image: claytonkpr/image-docker-lista-tarefas-frontend:latest
+    image: claytonkpr/frontend-lista-tarefas:latest
     ports:
       - "4200:80"
     depends_on:
