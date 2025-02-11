@@ -10,7 +10,7 @@
 
 Documentação da API estará disponível [aqui](http://localhost:8085/swagger-ui/index.html#/)
 
-Para utilziar a aplicação basta ter o docker instalado e digitar no terminal o seguinte código:
+Para utilziar a aplicação basta efetuar o clone do repositório, ter o docker instalado, abrir o CMD na pasta do repositório clonado e digitar o seguinte código:
 docker-compose up -d
 
 Acessar o front em: http://localhost
