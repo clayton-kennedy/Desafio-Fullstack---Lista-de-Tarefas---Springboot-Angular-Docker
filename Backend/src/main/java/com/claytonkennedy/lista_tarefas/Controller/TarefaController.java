@@ -17,7 +17,7 @@ import com.claytonkennedy.lista_tarefas.Model.Tarefa;
 import com.claytonkennedy.lista_tarefas.Service.TarefaService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping
 public class TarefaController {
     @Autowired
     TarefaService tarefaService;
