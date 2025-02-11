@@ -8,7 +8,7 @@
 * Angular 19
 * Postgres
 
-Documentação da API está disponível [aqui](http://localhost:8085/swagger-ui/index.html#/)
+Documentação da API estará disponível [aqui](http://localhost:8085/swagger-ui/index.html#/)
 
 Para utilziar a aplicação basta ter o docker instalado e digitar no terminal o seguinte código:
 docker-compose up -d
