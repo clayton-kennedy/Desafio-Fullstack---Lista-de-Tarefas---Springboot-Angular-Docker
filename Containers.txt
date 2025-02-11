@@ -1,5 +1,0 @@
-
-- Criar network: docker network create lista-tarefas
-- Criar volume: docker volume create lista-tarefas
-- Criar o container do postgres apontando para network: docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e PSOTGRES_USER=postgres -e POSTGRES_DB=listaTarefas --network lista-tarefas postgres:latest
-- Criar o container apontando para network: docker run --name pgadmin4 -p 15432:80 -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin --network lista-tarefas dpage/pgadmin4:latest

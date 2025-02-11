@@ -2,20 +2,25 @@ version: "3.8"
 
 services:
   frontend:
-    image: claytonkpr/front-lista-tarefas:latest
+    image: front-lista-tarefas:latest
     container_name: frontend
     restart: always
     ports:
       - "80:80"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy  # Agora está correto
     networks:
       - lista-tarefas
 
   backend:
-    image: claytonkpr/back-lista-tarefas:latest
+    image: back-lista-tarefas:latest
     container_name: backend
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8085/actuator/health"]
+      interval: 10s
+      retries: 5
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/lista-tarefas
       SPRING_DATASOURCE_USERNAME: postgres
