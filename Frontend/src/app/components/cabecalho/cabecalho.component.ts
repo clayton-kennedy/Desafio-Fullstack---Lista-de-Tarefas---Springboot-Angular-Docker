@@ -39,6 +39,7 @@ export class CabecalhoComponent {
       next: () => {
         this.novaTarefa = { descricao: '', dataFinal: '', prioridade: '' };
         this.listar();
+        this.tarefaService.listar();
       },
       error: (erro) => {
 	      console.log(erro)

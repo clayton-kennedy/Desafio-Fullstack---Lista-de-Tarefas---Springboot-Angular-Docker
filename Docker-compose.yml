@@ -7,9 +7,7 @@ services:
     restart: always
     ports:
       - "80:80"
-    depends_on:
-      backend:
-        condition: service_healthy  # Agora está correto
+    entrypoint: ["./wait-for-it.sh", "backend", "8085", "--", "npm", "start"] 
     networks:
       - lista-tarefas
 
@@ -17,10 +15,6 @@ services:
     image: claytonkpr/back-lista-tarefas:latest
     container_name: backend
     restart: always
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8085/actuator/health"]
-      interval: 10s
-      retries: 5
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/lista-tarefas
       SPRING_DATASOURCE_USERNAME: postgres
