@@ -20,6 +20,7 @@ export class CabecalhoComponent {
   ngOnInit(): void {
     this.listar();
   }
+
   listar(): void {
     this.tarefaService.listar().subscribe({
       next: (dados) => {
@@ -30,22 +31,22 @@ export class CabecalhoComponent {
       },
     });
   }
+
   cadastrarTarefa() {
     if (!this.novaTarefa.descricao || !this.novaTarefa.dataFinal || !this.novaTarefa.prioridade) {
       alert('Preencha todos os campos obrigatórios!');
       return;
     }
+
     this.tarefaService.adicionar(this.novaTarefa).subscribe({
-      next: () => {
+      next: (dados) => {
         this.novaTarefa = { descricao: '', dataFinal: '', prioridade: '' };
         this.listar();
-        this.tarefaService.listar();
       },
       error: (erro) => {
-	      console.log(erro)
+        console.log(erro);
         alert('Erro ao salvar a tarefa. Tente novamente.');
-        this.listar();
-      }
+      },
     });
   }
 }
