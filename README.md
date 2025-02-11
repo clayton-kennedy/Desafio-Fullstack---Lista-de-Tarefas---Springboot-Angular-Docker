@@ -1,4 +1,3 @@
-* MVC
 * Spring Boot
 * Spring MVC
 * Spring Data JPA
