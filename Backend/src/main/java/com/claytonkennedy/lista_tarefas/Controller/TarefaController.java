@@ -26,13 +26,13 @@ public class TarefaController {
 
     //adicionar
     @PostMapping
-    public List<TarefaDTO> adicionar(@RequestBody Tarefa tarefa) {
+    public void adicionar(@RequestBody Tarefa tarefa) {
         try {
             tarefaService.adicionar(tarefa);
-            return listar();
+            listar();
         } catch (Exception erro) {
             System.out.println("Erro: "+ erro.getMessage());
-            return listar();
+            listar();
         }        
     }
 

@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   frontend:
-    image: front-lista-tarefas:latest
+    image: claytonkpr/front-lista-tarefas:latest
     container_name: frontend
     restart: always
     ports:
@@ -14,7 +14,7 @@ services:
       - lista-tarefas
 
   backend:
-    image: back-lista-tarefas:latest
+    image: claytonkpr/back-lista-tarefas:latest
     container_name: backend
     restart: always
     healthcheck:

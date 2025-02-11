@@ -20,48 +20,48 @@ public class TarefaService {
     TarefaValidador tarefaValidador;
     
     //adicionar
-    public List<TarefaDTO> adicionar (Tarefa tarefa) {
+    public void adicionar (Tarefa tarefa) {
         try {
             if (tarefaValidador.ValidadorAdicionar(tarefa)) {
                 tarefaRepository.save(tarefa);
-                return listar();
+                listar();
             }
             System.out.println("Erro ao adicionar");
-            return listar();
+            listar();
         } catch (Exception erro) {
             System.out.println("Erro: "+ erro.getMessage());
-            return listar();
+            listar();
         }
     }
 
     //remover
-    public List<TarefaDTO> remover (String id) {
+    public void remover (String id) {
         try {
             if (tarefaValidador.ValidadorRemover(id)) {
                 tarefaRepository.deleteById(id);
-                return listar();
+                listar();
             }
             System.out.println("Erro ao remover");
-            return listar();
+            listar();
         } catch (Exception erro) {
             System.out.println("Erro: "+ erro.getMessage());
-            return listar();
+            listar();
         }
     }
 
     //atualizar
     @Transactional
-    public List<TarefaDTO> atualizar (Tarefa tarefa) {
+    public void atualizar (Tarefa tarefa) {
         try {
             if (tarefaValidador.ValidadorAtualizar(tarefa)) {
                 tarefaRepository.save(tarefa);
-                return listar();
+                listar();
             }
             System.out.println("Erro: Tarefa não encontrada.");
-            return listar();        
+            listar();        
         } catch (Exception erro) {
             System.out.println("Erro: "+ erro.getMessage());
-            return listar();
+            listar();
         }
     }
 

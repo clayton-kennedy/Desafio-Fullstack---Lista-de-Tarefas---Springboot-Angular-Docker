@@ -41,7 +41,7 @@ export class CabecalhoComponent {
         this.listar();
       },
       error: (erro) => {
-	console.log(erro)
+	      console.log(erro)
         alert('Erro ao salvar a tarefa. Tente novamente.');
         this.listar();
       }
